@@ -1,9 +1,3 @@
 # SafetySnap
 
-A PPE detection platform built with FastAPI and YOLOv5.
-
-## Features
-- Image upload and processing
-- Helmet/Vest detection
-- API-first architecture
-- HTML frontend (lightweight)
+A smart image-based PPE detection app built with FastAPI and YOLOv8.
