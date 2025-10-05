@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SafetySnap - PPE Detection</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: white;
+      overflow-x: hidden;
+    }
+
+    /* NAVBAR */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 15px 40px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+    nav h2 { color: #00e0ff; margin: 0; }
+    nav ul { list-style: none; display: flex; gap: 25px; margin: 0; }
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+    nav ul li a:hover { color: #00e0ff; }
+
+    /* HERO */
+    header {
+      height: 90vh;
+      background: url('https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1470&q=80') center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding-top: 60px;
+    }
+    header h1 {
+      font-size: 3.2em;
+      color: #00e0ff;
+      text-shadow: 0 0 10px rgba(0,0,0,0.6);
+    }
+    header p {
+      font-size: 1.2em;
+      max-width: 700px;
+      color: #fff;
+      margin: 20px;
+    }
+    .hero-btn {
+      background: #00e0ff;
+      color: #000;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .hero-btn:hover { background: #02c5e2; transform: scale(1.05); }
+
+    /* ABOUT */
+    #about {
+      padding: 80px 20px;
+      background: rgba(255,255,255,0.05);
+      text-align: center;
+    }
+    #about h2 { color: #00e0ff; margin-bottom: 20px; }
+    #about p { max-width: 800px; margin: auto; color: #ddd; }
+
+    /* UPLOAD SECTION */
+    .container {
+      max-width: 850px;
+      margin: 80px auto;
+      background: rgba(255,255,255,0.1);
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      text-align: center;
+    }
+    input[type="file"], button {
+      margin: 10px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      background: #00e0ff;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover { background: #02c5e2; transform: scale(1.05); }
+    video, canvas { width: 90%; border-radius: 10px; margin-top: 15px; display: none; }
+    #result img {
+      max-width: 90%;
+      border-radius: 10px;
+      margin-top: 15px;
+    }
+
+    /* HOW IT WORKS */
+    #how-it-works {
+      text-align: center;
+      padding: 70px 20px;
+      background: rgba(255,255,255,0.05);
+    }
+    .steps {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+      margin-top: 25px;
+    }
+    .step {
+      background: rgba(255,255,255,0.1);
+      padding: 20px;
+      border-radius: 10px;
+      width: 250px;
+      transition: 0.3s;
+    }
+    .step:hover { transform: scale(1.05); }
+
+    footer {
+      background: rgba(0,0,0,0.6);
+      padding: 20px;
+      font-size: 0.9em;
+      color: #ccc;
+    }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 2em; }
+      nav ul { flex-direction: column; gap: 10px; }
+      .container { width: 90%; }
+    }
+
+    .hero-text {
+  color: #000;
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION BAR -->
+  <nav>
+    <h2>SafetySnap</h2>
+    <ul>
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#upload">Detect PPE</a></li>
+      <li><a href="#how-it-works">How It Works</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <header id="hero">
+    <h1>AI-Powered PPE Detection</h1>
+    <p class="hero-text"><b>Ensuring workplace safety through intelligent helmet & vest recognition. Just upload or capture a photo and see SafetySnap in action.</b></p>
+
+    <button class="hero-btn" onclick="document.getElementById('upload').scrollIntoView({behavior:'smooth'})">Get Started</button>
+  </header>
+
+  <!-- ABOUT SECTION -->
+  <section id="about">
+    <h2>About SafetySnap</h2>
+    <p>
+      SafetySnap is an AI-based web application designed to automatically detect Personal Protective Equipment (PPE)
+      such as helmets and safety vests from uploaded or captured images. It empowers safety inspectors, construction teams,
+      and organizations to monitor compliance seamlessly — all through a simple, intuitive interface.
+    </p>
+  </section>
+
+  <!-- UPLOAD / CAMERA SECTION -->
+  <div class="container" id="upload">
+    <h2>PPE Detection</h2>
+    <form id="uploadForm">
+      <input type="file" name="file" id="file" accept="image/*">
+      <button type="submit">Upload Image</button>
+      <button type="button" id="cameraBtn">Use Camera</button>
+      <button type="button" id="demoBtn">Auto Demo</button>
+    </form>
+    <video id="camera" autoplay></video>
+    <canvas id="canvas"></canvas>
+    <div id="result"></div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <section id="how-it-works">
+    <h2>How It Works</h2>
+    <div class="steps">
+      <div class="step"><strong>1.</strong> Upload or capture an image of workers.</div>
+      <div class="step"><strong>2.</strong> Our AI model detects helmets and vests.</div>
+      <div class="step"><strong>3.</strong> View instant overlay results and compliance data.</div>
+      <div class="step"><strong>4.</strong> Analyze safety patterns and improve workplace safety.</div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 SafetySnap — Built with ❤️ for the Hackathon
+  </footer>
+
+  <script>
+    const API_BASE = "http://127.0.0.1:8000";
+    const form = document.getElementById("uploadForm");
+    const camera = document.getElementById("camera");
+    const canvas = document.getElementById("canvas");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const file = document.getElementById("file").files[0];
+      if (!file) return alert("Please select an image first!");
+      const formData = new FormData();
+      formData.append("file", file);
+      const res = await fetch(`${API_BASE}/api/images/`, { method: "POST", body: formData });
+      const data = await res.json();
+      showResult(data);
+    });
+
+    document.getElementById("cameraBtn").addEventListener("click", async () => {
+      camera.style.display = "block";
+      const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+      camera.srcObject = stream;
+      setTimeout(() => captureImage(), 4000);
+    });
+
+    function captureImage() {
+      canvas.width = camera.videoWidth;
+      canvas.height = camera.videoHeight;
+      const ctx = canvas.getContext("2d");
+      ctx.drawImage(camera, 0, 0);
+      camera.srcObject.getTracks().forEach(track => track.stop());
+      camera.style.display = "none";
+      canvas.toBlob(async blob => {
+        const formData = new FormData();
+        formData.append("file", blob, "camera_capture.jpg");
+        const res = await fetch(`${API_BASE}/api/images/`, { method: "POST", body: formData });
+        const data = await res.json();
+        showResult(data);
+      }, "image/jpeg");
+    }
+
+    document.getElementById("demoBtn").addEventListener("click", async () => {
+      const sampleImage = await fetch("https://raw.githubusercontent.com/ultralytics/yolov5/master/data/images/zidane.jpg");
+      const blob = await sampleImage.blob();
+      const formData = new FormData();
+      formData.append("file", blob, "demo.jpg");
+      const res = await fetch(`${API_BASE}/api/images/`, { method: "POST", body: formData });
+      const data = await res.json();
+      showResult(data);
+    });
+
+    function showResult(data) {
+      const resultDiv = document.getElementById("result");
+      resultDiv.innerHTML = `
+        <h3>Detection Results</h3>
+        <p><strong>Helmet:</strong> ${data.helmet}</p>
+        <p><strong>Vest:</strong> ${data.vest}</p>
+        <img src="${data.overlay_url}?t=${Date.now()}" alt="Detection Overlay">
+      `;
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+[
+  {
+    "filename": "akram avatar.png",
+    "helmet": false,
+    "vest": false,
+    "bboxes": [],
+    "overlay_url": "/static/overlays/akram avatar.png"
+  },
+  {
+    "filename": "akram avatar.png",
+    "helmet": false,
+    "vest": false,
+    "bboxes": [],
+    "overlay_url": "/static/overlays/akram avatar.png"
+  },
+  {
+    "filename": "google img.png",
+    "helmet": false,
+    "vest": false,
+    "bboxes": [],
+    "overlay_url": "/static/overlays/google img.png"
+  },
+  {
+    "filename": "demo.jpg",
+    "helmet": false,
+    "vest": false,
+    "bboxes": [],
+    "overlay_url": "/static/overlays/demo.jpg"
+  },
+  {
+    "filename": "demo.jpg",
+    "helmet": false,
+    "vest": false,
+    "bboxes": [],
+    "overlay_url": "/static/overlays/demo.jpg"
+  },
+  {
+    "filename": "demo.jpg",
+    "helmet": false,
+    "vest": false,
+    "bboxes": [],
+    "overlay_url": "/static/overlays/demo.jpg"
+  }
+]
